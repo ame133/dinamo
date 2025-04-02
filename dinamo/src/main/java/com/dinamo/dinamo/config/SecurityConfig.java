@@ -16,14 +16,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // Desactivar CSRF para pruebas
+                .csrf(csrf -> csrf.disable()) // Agregado para permitir POST sin autenticación
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/usuarios/**").permitAll() // Permitir acceso a usuarios sin autenticación
-                        .anyRequest().authenticated() // Todo lo demás requiere autenticación
+                        .requestMatchers("/usuarios/**").permitAll() // Permitir acceso sin autenticación
+                        .anyRequest().authenticated()
                 )
-                .httpBasic(httpBasic -> {}) // Habilitar autenticación básica
+                .httpBasic(httpBasic -> {})
                 .build();
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
