@@ -19,6 +19,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Agregado para permitir POST sin autenticación
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/usuarios/**").permitAll() // Permitir acceso sin autenticación
+                        .requestMatchers("/modulos/**").permitAll() // Permitir acceso sin autenticación a los modulos
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {})
