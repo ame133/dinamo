@@ -27,6 +27,7 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> listarUsuarios() {
+        System.out.println(usuarioService.listarUsuarios());
         return usuarioService.listarUsuarios();
     }
 

@@ -16,6 +16,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
+/*TO DO Corregir relaciones onetomany ya que andan dando "conflictos"*/
+
 public class Usuario {
 
     @Id
